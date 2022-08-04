@@ -1,5 +1,5 @@
 {
-  "name": "server",
+  "name": "api",
   "private": true,
   "version": "0.1.0",
   "description": "A Strapi application",
@@ -17,7 +17,8 @@
     "better-sqlite3": "7.4.6"
   },
   "author": {
-    "name": "A Strapi developer"
+    "name": "xrexy",
+    "email": "rexydoesthings@gmail.com"
   },
   "strapi": {
     "uuid": "d35308f6-6092-4e0a-872f-72965f649a49"
