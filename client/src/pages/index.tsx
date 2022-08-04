@@ -20,14 +20,6 @@ const Home: NextPage = () => {
             ))}
           </div>
         )}
-
-        {/* {data?.movies &&
-          (data.movies.map((movie: any) => {
-            {
-              console.log(movie);
-            }
-            <h1>{movie.attributes.locale + ""}</h1>;
-          }))} */}
       </div>
     </>
   );
