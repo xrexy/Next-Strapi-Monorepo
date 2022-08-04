@@ -2,12 +2,12 @@
 import { z } from "zod";
 
 /**
+ * @deprecated
  * Specify your server-side environment variables schema here.
  * This way you can ensure the app isn't built with invalid env vars.
  */
-export const serverSchema = z.object({
+ export const serverSchema = z.object({
   // FOO: z.string(),
-  PUBLIC_NEXT_API_URL: z.string().url().endsWith("api")
 });
 
 /**
@@ -16,7 +16,7 @@ export const serverSchema = z.object({
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 export const clientSchema = z.object({
-  // NEXT_PUBLIC_BAR: z.string(),
+  NEXT_PUBLIC_API_URL: z.string().url(),
 });
 
 /**
@@ -26,5 +26,5 @@ export const clientSchema = z.object({
  * @type {{ [k in keyof z.infer<typeof clientSchema>]: z.infer<typeof clientSchema>[k] | undefined }}
  */
 export const clientEnv = {
-  // NEXT_PUBLIC_BAR: process.env.NEXT_PUBLIC_BAR,
+  NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL
 };

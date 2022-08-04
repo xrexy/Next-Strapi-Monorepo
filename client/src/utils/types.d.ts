@@ -4,13 +4,13 @@ declare interface Movie {
 
 declare interface StrapiResponse<T> {
   result: {
-    id: number,
+    id: number;
     attributes: T & {
-      createdAt: Date,
-      updatedAt: Date,
-      publishedAt: Date,
-    }
-  }[],
+      createdAt: Date;
+      updatedAt: Date;
+      publishedAt: Date;
+    };
+  }[];
   meta: {
     pagination: {
       page: number;

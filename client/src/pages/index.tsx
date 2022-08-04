@@ -1,10 +1,9 @@
-import type { NextPage } from "next";
+import type { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
-import { trpc } from "../utils/trpc";
+import { env } from "../env/client.mjs";
+import { InferGetStaticPropsType } from "next";
 
-const Home: NextPage = () => {
-  const { data, isLoading } = trpc.useQuery(["strapi.movies.all"]);
-
+function Home({ result }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <>
       <Head>
@@ -13,16 +12,35 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        {data?.result && (
-          <div>
-            {data.result.map(({ attributes: { title } }) => (
-              <h1 key={title}>{title}</h1>
-            ))}
-          </div>
-        )}
+        <h1>Heavy development  atm :(</h1>
+
+        <ul>
+          {result &&
+            result.map(({ attributes: { title }, id }) => <li key={id}>{title}</li>)}
+        </ul>
       </div>
     </>
   );
+}
+
+export const getStaticProps: GetStaticProps<
+  StrapiResponse<Movie>
+> = async () => {
+  return fetch(`${env.NEXT_PUBLIC_API_URL}/movies`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((res) => res.json())
+    .then((data) => {
+      return {
+        props: {
+          meta: data.meta,
+          result: data.data,
+        },
+      };
+    });
 };
 
 export default Home;
