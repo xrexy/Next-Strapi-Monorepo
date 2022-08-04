@@ -7,6 +7,7 @@ import { z } from "zod";
  */
 export const serverSchema = z.object({
   // FOO: z.string(),
+  PUBLIC_NEXT_API_URL: z.string().url().endsWith("api")
 });
 
 /**
