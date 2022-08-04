@@ -15,11 +15,9 @@ const Home: NextPage = () => {
       <div>
         {data?.result && (
           <div>
-            {data.result.map(({attributes: {title}}) => {
-              console.log(title);
-
-              return <h1 key={title}>{title}</h1>
-            })}
+            {data.result.map(({ attributes: { title } }) => (
+              <h1 key={title}>{title}</h1>
+            ))}
           </div>
         )}
 
