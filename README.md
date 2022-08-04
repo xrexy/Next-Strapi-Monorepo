@@ -1,15 +1,9 @@
-# Strapi and NextJS Test monorepo
+# Testin some deployment things
 
-Test repository to deploy a Next app using Strapi as Backend on Cleavr with a Vultr server.
+Test repository to deploy a Next app using Strapi
 
-## Tech stack
+## Some Tech Used
 
-> Development
 > [NextJS](https://nextjs.org/),
 > [Strapi](https://strapi.io/),
-> [Lerna](https://lerna.js.org/)
-
-
-> Deployment
-> [Cleavr](https://cleavr.io),
-> [Vultr](https://www.vultr.com/)
+> [DigitalOcean](https://digitalocean.com)
